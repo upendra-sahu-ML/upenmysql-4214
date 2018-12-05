@@ -19,6 +19,9 @@ pipeline {
             sh "git config --global credential.helper store"
             sh "jx step validate --min-jx-version 1.1.73"
             sh "jx step git credentials"
+            sh "env"
+            sh "git config --list"
+            sh "git remote -v"
             // so we can retrieve the version in later steps
             sh "echo \$(jx-release-version) > VERSION"
           }
